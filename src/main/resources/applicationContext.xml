@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--    <context:component-scan base-package="com.wky.spring"/>-->
+
+    <bean id="myAdvisor" class="com.wky.spring.advisor.MyAdvisor"/>
+    <bean id="myService" class="com.wky.spring.aop.MyServiceImpl"/>
+
+    <!-- 配置ProxyFactoryBean：
+         1.proxyInterfaces：代理类要实现的接口
+         2.interceptorNames：拦截器的名称
+         3.target：目标对象/被代理对象
+     -->
+    <bean id="myAop" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="com.wky.spring.aop.MyService"/>
+        <property name="interceptorNames">
+            <list>
+                <value>myAdvisor</value>
+            </list>
+        </property>
+        <property name="target" ref="myService"/>
+    </bean>
+
+
+</beans>
