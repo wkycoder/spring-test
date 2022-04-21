@@ -17,6 +17,7 @@ public class JdkDynamicProxyDemo {
                 new Class[] {MyService.class}, new MyInvocationHandler(target));
         // 代理实例
         proxyObject.test();
+        proxyObject.toString();
 
     }
 

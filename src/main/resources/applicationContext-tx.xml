@@ -22,8 +22,8 @@
         <property name="url" value="jdbc:mysql://localhost:3306/demo"/>
         <property name="username" value="root"/>
         <property name="password" value="123"/>
-        <!-- mysql的事务默认是自动提交的 -->
-        <property name="defaultAutoCommit" value="false"/>
+        <!-- mysql的事务默认是自动提交的, 事务管理器会帮我们设置为false -->
+<!--        <property name="defaultAutoCommit" value="false"/>-->
     </bean>
 
     <!-- 事务相关配置 -->

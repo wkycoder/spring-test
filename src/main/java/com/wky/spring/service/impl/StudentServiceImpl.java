@@ -18,6 +18,6 @@ public class StudentServiceImpl implements StudentService {
 
     public void saveStudent(Student student) {
         studentDao.saveStudent(student);
-        int i = 1 / 0;
+//        int i = 1 / 0;
     }
 }
